@@ -1,5 +1,5 @@
-@import 'utils/mixins';
-@import 'utils/variables';
+@import '../utils/mixins';
+@import '../utils/variables';
 
 /*
 Buttons
@@ -27,36 +27,36 @@ Style guide: Components.buttons.css
 */
 
 .hc-btn {
-  background-color: @white;
-  border: 1px solid @blue;
-  border-radius: @border-radius;
-  color: @blue;
+  background-color: var(--white);
+  border: 1px solid var(--blue);
+  border-radius: var(--border-radius);
+  color: var(--blue);
   cursor: pointer;
-  font-family: @body-font;
-  font-size: @font-size-base;
+  font-family: var(--body-font);
+  font-size: var(--font-size-base);
   font-weight: bold;
-  line-height: @line-height-base;
+  line-height: var(--line-height-base);
   padding: 5px 10px;
   text-decoration: none;
 
   &:active,
   &:focus,
   &:hover {
-    background-color: darken(@blue, @darken-percent);
-    border-color: darken(@blue, @darken-percent);
-    color: @white;
+    background-color: color(var(--blue) blackness(+ var(--darken-percent)));
+    border-color: color(var(--blue) blackness(+ var(--darken-percent)));
+    color: var(--white);
   }
 
   &:focus {
-    .accessible-outline();
+    @apply --accessible-outline;
   }
 
-  a& {
+  @nest a& {
     display: inline-block;
   }
 }
 
 .hc-btn--primary {
-  background-color: @blue;
-  color: @white;
+  background-color: var(--blue);
+  color: var(--white);
 }

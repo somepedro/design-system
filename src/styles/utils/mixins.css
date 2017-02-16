@@ -1,0 +1,40 @@
+@import 'variables';
+
+:root {
+  --accessible-outline: {
+    outline-color: color(var(--blue) lightness(+ var(--lighten-percent)));
+    outline-offset: 1px;
+    outline-style: solid;
+    outline-width: 2px;
+  }
+
+  --font-xs: {
+    font-size: var(--font-size-xsmall);
+    line-height: var(--line-height-xsmall);
+  }
+
+  --font-sm: {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+  }
+
+  --font-md: {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+  }
+
+  --font-lg: {
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+  }
+
+  --font-xl: {
+    font-size: var(--font-size-xlarge);
+    line-height: var(--line-height-xlarge);
+  }
+
+  --font-xx: {
+    font-size: var(--font-size-xxlarge);
+    line-height: var(--line-height-xxlarge);
+  }
+}

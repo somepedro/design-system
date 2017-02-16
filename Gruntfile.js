@@ -66,37 +66,31 @@ module.exports = function(grunt) {
         dest: 'docs'
       }
     },
-    less: { // Preprocess our CSS
-      src: {
-        options: {
-          paths: ['src/styles']
-        },
-        files: [{
-          expand: true,
-          cwd: 'src/styles',
-          src: ['all.less', 'components/*.less'], // TODO(sawyer): Exclude utils instead
-          dest: 'dist/styles',
-          ext: '.css'
-        }]
-      }
-    },
-    postcss: { // Transfrom the preprocessed CSS
+    postcss: { // Transform CSS
       options: {
         processors: [
           require('postcss-import')(), // inline imports
-          require('autoprefixer')(), // add any necessary vender prefixes
+          require('postcss-cssnext')(), // future spec -> current spec (includes autoprefixer)
           require('cssnano')() // minify the result
         ]
       },
-      dist: {
-        src: 'dist/styles/**/*.css'
+      styles: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/styles/',
+            src: ['**/*.css'],
+            dest: 'dist/styles',
+            ext: '.css',
+            filter: dest => !dest.match(/\/utils\//)
+          }
+        ],
       }
     },
     stylelint: { // Lint CSS
-      src: ['src/styles/**/*.less'],
+      src: ['src/styles/**/*.css'],
       options: {
-        reportNeedlessDisables: true,
-        syntax: 'less'
+        reportNeedlessDisables: true
       }
     },
     watch: { // Run corresponding tasks when certain files change
@@ -109,15 +103,15 @@ module.exports = function(grunt) {
         tasks: ['eslint'],
       },
       styles: {
-        files: ['src/styles/**/*.less'],
-        tasks: ['stylelint', 'build:css'],
+        files: ['src/styles/**/*.css'],
+        tasks: ['build:css'],
       }
     },
   });
 
   // Grouped tasks
-  grunt.registerTask('lint', ['eslint', 'stylelint']);
-  grunt.registerTask('build:css', ['less', 'postcss']);
+  grunt.registerTask('lint', ['eslint']);
+  grunt.registerTask('build:css', ['postcss']);
   grunt.registerTask('build:docs', ['copy:docs', 'kss']);
 
   // Executable tasks
