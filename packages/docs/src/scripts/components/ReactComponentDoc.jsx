@@ -13,7 +13,8 @@ class ReactComponentDoc extends React.PureComponent {
     if (this.props.hideExample) return;
 
     const renderComponent = require(`../../../node_modules/${this.props.packagePath}.example.jsx`).default;
-    return <ReactComponentExample renderComponent={renderComponent} />;
+    const dependencies = require(`../../../node_modules/${this.props.packagePath}.example.jsx`).dependencies;
+    return <ReactComponentExample renderComponent={renderComponent} dependencies={dependencies} />;
   }
 
   render() {

@@ -16,6 +16,7 @@
     "prismjs": "^1.6.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-live": "^1.5.2"
   }
 }

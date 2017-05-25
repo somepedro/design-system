@@ -1,20 +1,20 @@
-/* eslint-disable react/display-name */
 import Button from './Button';
-import React from 'react';
 
-export default function() {
-  return (
-    <div>
-      <Button>React button</Button>
+export const dependencies = {
+  Button: Button
+};
 
-      <Button
-        className='ds-u-margin-left--1'
-        href='http://example.com'
-        target='_blank'
-        variation='primary'
-      >
-        React anchor button
-      </Button>
-    </div>
-  );
-}
+export default (`
+  <div>
+    <Button>React button</Button>
+
+    <Button
+      className='ds-u-margin-left--1'
+      href='http://example.com'
+      target='_blank'
+      variation='primary'
+    >
+      React anchor button
+    </Button>
+  </div>
+`).trim();

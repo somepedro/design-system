@@ -8,6 +8,12 @@ require('prismjs/components/prism-jsx');
 import PropTypes from 'prop-types';
 import React from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
+import {
+  LiveEditor,
+  LiveError,
+  LivePreview,
+  LiveProvider
+} from 'react-live';
 
 class ReactComponentExample extends React.PureComponent {
   highlightedMarkup() {
@@ -22,13 +28,14 @@ class ReactComponentExample extends React.PureComponent {
   render() {
     return (
       <div className='markup markup--react'>
-        <div className='ds-u-border--1 ds-u-padding--1'>
-          {this.props.renderComponent()}
-        </div>
+        <LiveProvider mountStylesheet={false} code={this.props.renderComponent} scope={this.props.dependencies}>
+          <div className='ds-u-margin-bottom--2'>
+            <LiveEditor />
+          </div>
 
-        <CodeSnippet language='jsx'>
-          {this.highlightedMarkup()}
-        </CodeSnippet>
+          <LiveError />
+          <LivePreview />
+        </LiveProvider>
       </div>
     );
   }
