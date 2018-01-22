@@ -34,6 +34,24 @@ Markup:
     </tr>
   </tbody>
 </table>
+<div class="ds-u-margin-top--1">
+  <strong>ds-u-valign--text-top</strong>
+  <svg class="ds-u-valign--text-top" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <use xlink:href="{{root}}/public/images/symbols.svg#download"></use>
+  </svg>
+</div>
+<div class="ds-u-margin-top--1">
+  <strong>ds-u-valign--text-bottom</strong>
+  <svg class="ds-u-valign--text-bottom" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <use xlink:href="{{root}}/public/images/symbols.svg#download"></use>
+  </svg>
+</div>
+<div class="ds-u-margin-top--1">
+  <strong>ds-u-valign--sub</strong>
+  <svg class="ds-u-valign--sub" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <use xlink:href="{{root}}/public/images/symbols.svg#download"></use>
+  </svg>
+</div>
 
 Style guide: utilities.vertical-align
 */
@@ -47,4 +65,16 @@ Style guide: utilities.vertical-align
 
 .ds-u-valign--bottom {
   vertical-align: bottom !important;
+}
+
+.ds-u-valign--text-top {
+  vertical-align: text-top !important;
+}
+
+.ds-u-valign--text-bottom {
+  vertical-align: text-bottom !important;
+}
+
+.ds-u-valign--sub {
+  vertical-align: sub !important;
 }
